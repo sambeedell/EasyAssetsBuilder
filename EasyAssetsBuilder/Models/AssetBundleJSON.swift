@@ -1,5 +1,5 @@
 //
-//  JSONHandler.swift
+//  AssetBundleJSON.swift
 //  EasyAssetsBuilder
 //
 //  Created by Sam Beedell on 11/04/2018.
@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class JSONHandler: NSObject {
+class AssetBundleJSON: NSObject {
 
-    var parentJSON: [String:AnyObject]?
-    var assetsJSON: [[String:AnyObject]] = []
+    var info: Info?
+    var assets: [String:Asset] = [:]
     
     // Devices available: iPhone, iPad, Mac, AppleTV, AppleWatch
     
@@ -20,17 +20,32 @@ class JSONHandler: NSObject {
     
     init(devices: [Device]) {
         super.init()
+        
+        let decoder = JSONDecoder()
     
-        self.parentJSON = self.jsonForResource("/Contents.json")
+        do {
+            if let data = self.jsonForResource("/Contents.json") {
+                self.info = try decoder.decode(Info.self, from: data)
+            }
+        } catch let err {
+            print(err)
+        }
+        
         //print(self.parentJSON ?? "Empty...")
         
         for device in devices {
-            self.assetsJSON.append(self.resourceForDevice(device.name))
+            if let data = self.jsonForDevice(device.name) {
+                do {
+                    let deviceAssetBundle = try decoder.decode(Asset.self, from: data)
+                    self.assets[device.name.rawValue] = deviceAssetBundle
+                } catch let err {
+                    print(err)
+                }
+            }
         }
-        //print(self.assetsJSON)
     }
     
-    func resourceForDevice( _ device: DeviceName) -> [String:AnyObject] {
+    func jsonForDevice( _ device: DeviceName) -> Data? {
         
         var filepath = ""
         
@@ -51,16 +66,10 @@ class JSONHandler: NSObject {
 //            return [:]
         }
         
-        // Safely unwrap resource
-        if let resource = jsonForResource(filepath) {
-            print("JSON Parsed successfully for \(device)")
-            return resource
-        }
-        // Return empty dictionary if no resource :(
-        return [:]
+        return jsonForResource(filepath)
     }
     
-    func jsonForResource(_ resource: String) -> [String:AnyObject]? {
+    func jsonForResource(_ resource: String) -> Data? {
         
         // Check the resources exist
         do {
@@ -76,14 +85,19 @@ class JSONHandler: NSObject {
         let resourcePath = docsPath + resource
         
         // Get the JSON object
-        do { let jsonData = try Data.init(contentsOf: URL(fileURLWithPath: resourcePath))
+        do {
+            let jsonData = try Data.init(contentsOf: URL(fileURLWithPath: resourcePath))
+            return jsonData
+            /*
             do { let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
                 // Check JSON is valid
                 if JSONSerialization.isValidJSONObject(jsonObject) ? true : false {
-                    if let json = jsonObject as? [String:AnyObject] {
-                        return json
-                }   }
+                    return jsonObject
+                    //if let json = jsonObject as? [String:AnyObject] {
+                    //    return json
+                }   //}
             } catch { print(error) }
+             */
         } catch { print(error) }
         print("Error: Bad JSON")
         return nil

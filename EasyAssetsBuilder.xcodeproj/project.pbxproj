@@ -16,7 +16,7 @@
 		6012033C207E2373007B5416 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012033B207E2373007B5416 /* ImageViewController.swift */; };
 		6012033F207E238F007B5416 /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012033E207E238F007B5416 /* DestinationView.swift */; };
 		60120344207E68E2007B5416 /* Default JSON in Resources */ = {isa = PBXBuildFile; fileRef = 60120343207E68E2007B5416 /* Default JSON */; };
-		60120346207E6A2A007B5416 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120345207E6A2A007B5416 /* JSONHandler.swift */; };
+		60120346207E6A2A007B5416 /* AssetBundleJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120345207E6A2A007B5416 /* AssetBundleJSON.swift */; };
 		60120351207E6AB9007B5416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6012034E207E6AB9007B5416 /* Assets.xcassets */; };
 		60120354207E6B60007B5416 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120353207E6B60007B5416 /* Enums.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,7 @@
 		6012033B207E2373007B5416 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		6012033E207E238F007B5416 /* DestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 		60120343207E68E2007B5416 /* Default JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Default JSON"; sourceTree = "<group>"; };
-		60120345207E6A2A007B5416 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
+		60120345207E6A2A007B5416 /* AssetBundleJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetBundleJSON.swift; sourceTree = "<group>"; };
 		6012034E207E6AB9007B5416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6012034F207E6AB9007B5416 /* EasyAssetsBuilder.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = EasyAssetsBuilder.entitlements; sourceTree = "<group>"; };
 		60120353207E6B60007B5416 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				60120353207E6B60007B5416 /* Enums.swift */,
 				60120336207E130A007B5416 /* WindowController.swift */,
 				6012031A207E117A007B5416 /* Document.swift */,
-				60120345207E6A2A007B5416 /* JSONHandler.swift */,
+				60120345207E6A2A007B5416 /* AssetBundleJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 				6012033C207E2373007B5416 /* ImageViewController.swift in Sources */,
 				60120339207E22B4007B5416 /* RoundedRectView.swift in Sources */,
 				60120354207E6B60007B5416 /* Enums.swift in Sources */,
-				60120346207E6A2A007B5416 /* JSONHandler.swift in Sources */,
+				60120346207E6A2A007B5416 /* AssetBundleJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

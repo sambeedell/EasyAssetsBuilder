@@ -131,25 +131,48 @@ struct Size {
     }
 }
 
-//struct JSONContent: Codable {
-//    struct Content {
-//        struct Info {
-//            let author: String?
-//            let version: String?
-//        }
-//        struct Images {
-//            struct Value {
-//                let idiom: String?
-//                let scale: String?
-//                let size: String?
-//            }
-//            let key: String?
-//            let values: [Value]
-//        }
-//        let info: Info?
-//        let images: Images?
-//    }
-//    let content: Content?
-//}
+struct Info: Codable {
+    let author: String?
+    let version: Int? // Probably should be Float
+    private enum CodingKeys: String, CodingKey {
+        case author
+        case version
+    }
+}
+
+struct Asset: Codable {
+    struct AssetBundle: Codable {
+        struct Images: Codable {
+            struct Value: Codable {
+                let idiom: String?
+                let scale: String?
+                let size: String?
+                var image: String?
+                private enum CodingKeys: String, CodingKey {
+                    case idiom
+                    case scale
+                    case size
+                    case image //?
+                }
+            }
+            let key: String?
+            var values: [Value]
+            private enum CodingKeys: String, CodingKey {
+                case key
+                case values
+            }
+        }
+        let info: Info?
+        var images: Images?
+        private enum CodingKeys: String, CodingKey {
+            case info
+            case images
+        }
+    }
+    var content: AssetBundle?
+    private enum CodingKeys: String, CodingKey {
+        case content
+    }
+}
 
 

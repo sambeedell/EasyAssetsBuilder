@@ -20,7 +20,7 @@ class ImageViewController: NSViewController {
     
     let deviceList = DeviceList()
     var devices: [Device] = []
-    var contents: JSONHandler?
+    var assetBundle: AssetBundleJSON?
     //Users/sambeedell/Documents/GitHub/EasyAssetsBuilder/EasyAssetsBuilder/Default JSON/Contents.json
 
     override var representedObject: Any? {
@@ -36,10 +36,10 @@ class ImageViewController: NSViewController {
         
         // User must first select devices...
         devices.append(deviceList.iPhone)
-        contents = JSONHandler(devices: devices)
+        assetBundle = AssetBundleJSON(devices: devices)
         
         // MARK: - TEST (delete me)
-        print(updatedContentsJSONFor(devices.first!, size: devices.first!.size.first!, filename: "MrPoopyPants.poo"))
+        //print(updatedContentsJSONFor(devices.first!, size: devices.first!.size.first!, filename: "MrPoopyPants.poo"))
         
         // TODO: Implement tab view or some method of changing which devices to include in another window...
         
@@ -132,7 +132,20 @@ class ImageViewController: NSViewController {
                     if saveImageToURL(image, url: imageURL) {
                         count += 1
                         // Update .json
-                        contents?.assetsJSON = updatedContentsJSONFor(device, size:size, filename: filename)
+                        if let assetBundlesValue = assetBundle?.assets[device.name.rawValue]?.content?.images?.values {
+                            for var value in assetBundlesValue {
+                                value.image = filename
+                            }
+                        }
+                        
+                        
+                        
+                        
+//                        assetBundle?.assets = updatedContentsJSONFor(device, size:size, filename: filename)
+                        
+                        
+                        
+                        
                     } else {
                         // TODO: 'device' is probably not readable, will display pointer
                         print("Could not create image for: \(device)")
@@ -143,7 +156,7 @@ class ImageViewController: NSViewController {
         return (count == total) ? true : false
     }
     
-    
+    /*
     func updatedContentsJSONFor(_ device: Device, size: Size, filename:String) -> [[String:AnyObject]] {
         let sizeString = "\(Int(size.resolution.pixel))x\(Int(size.resolution.pixel))"
         let idiom = device.name.rawValue.lowercased()
@@ -151,7 +164,7 @@ class ImageViewController: NSViewController {
         
         print("Looking for: \(idiom), \(sizeString), \(scale), \(filename)")
         
-        if var assetsJSONCopy = contents?.assetsJSON {
+        if var assetsJSONCopy = assetBundle?.assetsJSON {
             
             // Stupid way to update JSON:
             var count = 0
@@ -199,9 +212,10 @@ class ImageViewController: NSViewController {
         }
         
         // BAD - Force unwrap
-        return contents!.assetsJSON
+        return assetBundle!.assetsJSON
         
     }
+    */
     
     func saveContentsJSON() -> Bool {
         // overwrite the contents of the original file.
