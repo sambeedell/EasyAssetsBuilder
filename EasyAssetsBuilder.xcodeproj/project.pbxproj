@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		60120317207E117A007B5416 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120316207E117A007B5416 /* AppDelegate.swift */; };
-		60120319207E117A007B5416 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120318207E117A007B5416 /* ViewController.swift */; };
 		6012031B207E117A007B5416 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012031A207E117A007B5416 /* Document.swift */; };
-		6012031D207E117B007B5416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6012031C207E117B007B5416 /* Assets.xcassets */; };
 		60120320207E117B007B5416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6012031E207E117B007B5416 /* Main.storyboard */; };
 		6012032C207E117B007B5416 /* EasyAssetsBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012032B207E117B007B5416 /* EasyAssetsBuilderTests.swift */; };
+		60120337207E130A007B5416 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120336207E130A007B5416 /* WindowController.swift */; };
+		60120339207E22B4007B5416 /* RoundedRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120338207E22B4007B5416 /* RoundedRectView.swift */; };
+		6012033C207E2373007B5416 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012033B207E2373007B5416 /* ImageViewController.swift */; };
+		6012033F207E238F007B5416 /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012033E207E238F007B5416 /* DestinationView.swift */; };
+		60120344207E68E2007B5416 /* Default JSON in Resources */ = {isa = PBXBuildFile; fileRef = 60120343207E68E2007B5416 /* Default JSON */; };
+		60120346207E6A2A007B5416 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120345207E6A2A007B5416 /* JSONHandler.swift */; };
+		60120351207E6AB9007B5416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6012034E207E6AB9007B5416 /* Assets.xcassets */; };
+		60120354207E6B60007B5416 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60120353207E6B60007B5416 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,15 +34,21 @@
 /* Begin PBXFileReference section */
 		60120313207E117A007B5416 /* EasyAssetsBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyAssetsBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60120316207E117A007B5416 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		60120318207E117A007B5416 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6012031A207E117A007B5416 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		6012031C207E117B007B5416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6012031F207E117B007B5416 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		60120321207E117B007B5416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60120322207E117B007B5416 /* EasyAssetsBuilder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EasyAssetsBuilder.entitlements; sourceTree = "<group>"; };
 		60120327207E117B007B5416 /* EasyAssetsBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyAssetsBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6012032B207E117B007B5416 /* EasyAssetsBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAssetsBuilderTests.swift; sourceTree = "<group>"; };
 		6012032D207E117B007B5416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60120336207E130A007B5416 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		60120338207E22B4007B5416 /* RoundedRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectView.swift; sourceTree = "<group>"; };
+		6012033B207E2373007B5416 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		6012033E207E238F007B5416 /* DestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
+		60120343207E68E2007B5416 /* Default JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Default JSON"; sourceTree = "<group>"; };
+		60120345207E6A2A007B5416 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
+		6012034E207E6AB9007B5416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6012034F207E6AB9007B5416 /* EasyAssetsBuilder.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = EasyAssetsBuilder.entitlements; sourceTree = "<group>"; };
+		60120353207E6B60007B5416 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		60120357207F5006007B5416 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,13 +90,14 @@
 		60120315207E117A007B5416 /* EasyAssetsBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				60120357207F5006007B5416 /* Info.plist */,
 				60120316207E117A007B5416 /* AppDelegate.swift */,
-				60120318207E117A007B5416 /* ViewController.swift */,
-				6012031A207E117A007B5416 /* Document.swift */,
-				6012031C207E117B007B5416 /* Assets.xcassets */,
 				6012031E207E117B007B5416 /* Main.storyboard */,
-				60120321207E117B007B5416 /* Info.plist */,
-				60120322207E117B007B5416 /* EasyAssetsBuilder.entitlements */,
+				60120347207E6A36007B5416 /* Models */,
+				6012033D207E2379007B5416 /* Dragging Destinations */,
+				6012033A207E22B7007B5416 /* Drawing */,
+				60120352207E6ACC007B5416 /* Utilities */,
+				60120343207E68E2007B5416 /* Default JSON */,
 			);
 			path = EasyAssetsBuilder;
 			sourceTree = "<group>";
@@ -96,6 +109,43 @@
 				6012032D207E117B007B5416 /* Info.plist */,
 			);
 			path = EasyAssetsBuilderTests;
+			sourceTree = "<group>";
+		};
+		6012033A207E22B7007B5416 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				60120338207E22B4007B5416 /* RoundedRectView.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		6012033D207E2379007B5416 /* Dragging Destinations */ = {
+			isa = PBXGroup;
+			children = (
+				6012033B207E2373007B5416 /* ImageViewController.swift */,
+				6012033E207E238F007B5416 /* DestinationView.swift */,
+			);
+			path = "Dragging Destinations";
+			sourceTree = "<group>";
+		};
+		60120347207E6A36007B5416 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60120353207E6B60007B5416 /* Enums.swift */,
+				60120336207E130A007B5416 /* WindowController.swift */,
+				6012031A207E117A007B5416 /* Document.swift */,
+				60120345207E6A2A007B5416 /* JSONHandler.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60120352207E6ACC007B5416 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6012034E207E6AB9007B5416 /* Assets.xcassets */,
+				6012034F207E6AB9007B5416 /* EasyAssetsBuilder.entitlements */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +198,11 @@
 				TargetAttributes = {
 					60120312207E117A007B5416 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					60120326207E117B007B5416 = {
 						CreatedOnToolsVersion = 9.3;
@@ -179,8 +234,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6012031D207E117B007B5416 /* Assets.xcassets in Resources */,
 				60120320207E117B007B5416 /* Main.storyboard in Resources */,
+				60120344207E68E2007B5416 /* Default JSON in Resources */,
+				60120351207E6AB9007B5416 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,9 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60120319207E117A007B5416 /* ViewController.swift in Sources */,
+				6012033F207E238F007B5416 /* DestinationView.swift in Sources */,
+				60120337207E130A007B5416 /* WindowController.swift in Sources */,
 				60120317207E117A007B5416 /* AppDelegate.swift in Sources */,
 				6012031B207E117A007B5416 /* Document.swift in Sources */,
+				6012033C207E2373007B5416 /* ImageViewController.swift in Sources */,
+				60120339207E22B4007B5416 /* RoundedRectView.swift in Sources */,
+				60120354207E6B60007B5416 /* Enums.swift in Sources */,
+				60120346207E6A2A007B5416 /* JSONHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +412,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EasyAssetsBuilder/EasyAssetsBuilder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CRBZM3N9GU;
@@ -360,9 +420,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectlambda.EasyAssetsBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -370,7 +431,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EasyAssetsBuilder/EasyAssetsBuilder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CRBZM3N9GU;
@@ -379,9 +439,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectlambda.EasyAssetsBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
