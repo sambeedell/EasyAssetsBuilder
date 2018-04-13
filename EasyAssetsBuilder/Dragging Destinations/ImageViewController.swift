@@ -101,17 +101,11 @@ class ImageViewController: NSViewController {
                 
                 // Process image into the desired icon sizes
                 if processImageForDevices(devices, in: assetsURL) {
-                    print("Folder populated with images")
+                    print("Folder populated with images: \(assetsURL.path)")
+                    assetBundle?.saveAssetsBundleFor(devices: devices, in: parentURL, and: assetsURL)
                 } else {
                     print("Error: Failed to create all images")
                     // Clean up: remove created directories and return to original
-                }
-                
-                // TODO: Save JSON
-                if saveContentsJSON() {
-                    print("Updated JSON saved")
-                } else {
-                    print("Error: Could nto save Contents.json")
                 }
             }
         }
@@ -130,108 +124,66 @@ class ImageViewController: NSViewController {
                 let resolution = NSSize(width: size.resolution.pixels, height: size.resolution.pixels)
                 if let image = inputImage?.resized(to: resolution) {
                     if saveImageToURL(image, url: imageURL) {
-                        count += 1
-                        // Update .json
-                        if let assetBundlesValue = assetBundle?.assets[device.name.rawValue]?.content?.images?.values {
-                            for var value in assetBundlesValue {
-                                value.image = filename
+                        
+                        // Set properties
+                        let idiom = device.name.rawValue.lowercased()
+                        let sizeString = "\(Int(size.resolution.pixel))x\(Int(size.resolution.pixel))"
+                        let scale = "\(Int(size.resolution.scale))x"
+                        
+                        if let assetBundlesValue = assetBundle?.assets[device.name.rawValue]?.images {
+                            // Immutable
+                            //assetBundlesValue.filter ({ $0.idiom == idiom }).first?.filename = filename
+                            
+                            // The Model objects are Structs not Classes, hence are passed by value not reference
+                            // This means we cannot use filter() as it is an immutable copy, instead we must use map()
+                            
+                            // Mutable
+                            assetBundle?.assets[device.name.rawValue]?.images = assetBundlesValue.map{
+                                var mutableAssetBundlesValue = $0
+                                if $0.idiom == idiom && $0.scale == scale && $0.size == sizeString {
+                                    mutableAssetBundlesValue.filename = filename
+                                } else if $0.idiom == "ios-marketing" && $0.scale == scale && $0.size == sizeString {
+                                    mutableAssetBundlesValue.filename = filename
+                                }
+                                return mutableAssetBundlesValue
                             }
                         }
-                        
-                        
-                        
-                        
-//                        assetBundle?.assets = updatedContentsJSONFor(device, size:size, filename: filename)
-                        
-                        
-                        
-                        
-                    } else {
-                        // TODO: 'device' is probably not readable, will display pointer
-                        print("Could not create image for: \(device)")
                     }
+                    
+                    
+                    //                        // Not very swifty...
+                    //                        count += 1
+                    //                        // Update .json
+                    //                        if var assetBundlesValue = assetBundle?.assets[device.name.rawValue]?.images {
+                    //                            var count = 0
+                    //                            for var image in assetBundlesValue {
+                    //                                let sizeString = "\(Int(size.resolution.pixel))x\(Int(size.resolution.pixel))"
+                    //                                let idiom = device.name.rawValue.lowercased()
+                    //                                let scale = "\(Int(size.resolution.scale))x"
+                    //                                if image.idiom == idiom && image.scale == scale && image.size == sizeString {
+                    //                                    image.filename = filename
+                    //                                } else if image.idiom == "ios-marketing" && image.scale == scale && image.size == sizeString {
+                    //                                    image.filename = filename
+                    //                                }
+                    //                                if image.filename != nil {
+                    //                                    //print(assetBundlesValue[count])
+                    //                                    assetBundlesValue.remove(at: count)
+                    //                                    assetBundlesValue.insert(image, at: count)
+                    //                                    //print(assetBundlesValue[count])
+                    //                                }
+                    //                                count += 1
+                    //                            }
+                    //                            // COMPLETE
+                    //                            assetBundle?.assets[device.name.rawValue]?.images = assetBundlesValue
+                    //                        }
+                } else {
+                    print("Could not create image for: \(device.name), \(size)")
                 }
+                count += 1
             }
         }
         return (count == total) ? true : false
     }
-    
-    /*
-    func updatedContentsJSONFor(_ device: Device, size: Size, filename:String) -> [[String:AnyObject]] {
-        let sizeString = "\(Int(size.resolution.pixel))x\(Int(size.resolution.pixel))"
-        let idiom = device.name.rawValue.lowercased()
-        let scale = "\(Int(size.resolution.scale))x"
-        
-        print("Looking for: \(idiom), \(sizeString), \(scale), \(filename)")
-        
-        if var assetsJSONCopy = assetBundle?.assetsJSON {
-            
-            // Stupid way to update JSON:
-            var count = 0
-            // Mac / iOS / tvOS ....
-            for var asset in assetsJSONCopy {
-                // Match asset by its idiom, scale and size
-                // Append/replace the asset with new image file name
-                
-                for var item in asset {
-                    if item.key == "images" {
-                        if var values = item.value as? [[String:AnyObject]] {
-                            var index = 0
-                            for var value in values {
-                                print(value)
-                                if let i = value["idiom"] as? String,
-                                    let sz = value["size"] as? String,
-                                    let sc = value["scale"]  as? String {
-                                    if i == idiom && sz == sizeString && sc == scale {
-                                        // Append mutable 'item' for 'image' given 'filepath'
-                                        value["image"] = filename as AnyObject
-                                        values.remove(at: index)
-                                        values.append(value)
-                                        item.value = values as AnyObject
-                                        asset[item.key] = item as AnyObject
-                                        assetsJSONCopy.remove(at: count)
-                                        assetsJSONCopy.append(asset)
-                                        print("Updated: \(i), \(sz), \(sc), \(filename)")
-                                    } else if i == "ios-marketing" {
-                                        if sc == scale {
-                                            value["image"] = filename as AnyObject
-                                        }
-                                    }
-                                }
-                                index += 1
-                            }
-                        }
-                    }
-                }
-                count += 1
-            }
-            return assetsJSONCopy
-            
-            
-            // Codable
-        }
-        
-        // BAD - Force unwrap
-        return assetBundle!.assetsJSON
-        
-    }
-    */
-    
-    func saveContentsJSON() -> Bool {
-        // overwrite the contents of the original file.
-//        do
-//        {
-//            let file = try FileHandle(forWritingToURL: url!)
-//            file.writeData(jsonData)
-//            print("JSON data was written to the file successfully!")
-//        }
-//        catch let error as NSError
-//        {
-//            print("Couldn't write to file: \(error.localizedDescription)")
-//        }
-        return false
-    }
-    
     
     func saveImageToURL(_ image: NSImage, url: URL) -> Bool {
         // Save Image to path
@@ -246,14 +198,11 @@ class ImageViewController: NSViewController {
                 print("Error: Could not saved image: \(error.description)")
             }
         }
-        Swift.print("Error: saveImageToPath() -> could not create data")
+        print("Error: saveImageToPath() -> could not create data")
         return false
     }
 }
 
-extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObject {
-    // TODO: Write the updateContentsJSONFor() function in here
-}
 
 //
 // MARK: - DestinationViewDelegate

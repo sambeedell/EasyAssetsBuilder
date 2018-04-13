@@ -1,5 +1,5 @@
 //
-//  Enums.swift
+//  Models.swift
 //  EasyAssetsBuilder
 //
 //  Created by Sam Beedell on 11/04/2018.
@@ -131,48 +131,28 @@ struct Size {
     }
 }
 
+struct Content: Codable {
+    let info : Info
+}
+
 struct Info: Codable {
-    let author: String?
-    let version: Int? // Probably should be Float
+    let author: String
+    let version: Int // Probably should be Float
     private enum CodingKeys: String, CodingKey {
         case author
         case version
     }
 }
 
-struct Asset: Codable {
-    struct AssetBundle: Codable {
-        struct Images: Codable {
-            struct Value: Codable {
-                let idiom: String?
-                let scale: String?
-                let size: String?
-                var image: String?
-                private enum CodingKeys: String, CodingKey {
-                    case idiom
-                    case scale
-                    case size
-                    case image //?
-                }
-            }
-            let key: String?
-            var values: [Value]
-            private enum CodingKeys: String, CodingKey {
-                case key
-                case values
-            }
-        }
-        let info: Info?
-        var images: Images?
-        private enum CodingKeys: String, CodingKey {
-            case info
-            case images
-        }
+struct AssetBundle: Codable {
+    struct Image: Codable {
+        let idiom: String
+        let scale: String
+        let size:  String
+        var filename: String?
     }
-    var content: AssetBundle?
-    private enum CodingKeys: String, CodingKey {
-        case content
-    }
+    let info: Info
+    var images: [Image]
 }
 
 
