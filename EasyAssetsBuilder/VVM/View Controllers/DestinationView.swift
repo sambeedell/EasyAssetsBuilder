@@ -11,9 +11,9 @@ import Cocoa
 
 protocol DestinationViewDelegate {
     func processImageURL(_ url: URL)
-//    func processImageURL(_ url: URL, center: NSPoint)
-//    func processImage(_ image: NSImage, center: NSPoint)
-//    func processAction(_ action: String, center: NSPoint)
+    //    func processImageURL(_ url: URL, center: NSPoint)
+    //    func processImage(_ image: NSImage, center: NSPoint)
+    //    func processAction(_ action: String, center: NSPoint)
 }
 
 class DestinationView: NSView {
@@ -62,10 +62,8 @@ class DestinationView: NSView {
     // Draw a system-colored border when a valid drag enters the view.
     override func draw(_ dirtyRect: NSRect) {
         if isReceivingDrag {
-//            NSColor.selectedControlColor.set()
             NSColor.black.set()
             let radius = Appearance.radius
-            //let path = NSBezierPath(rect:bounds)
             
             // TODO: Tidy this UI
             let path = NSBezierPath(roundedRect: NSInsetRect(bounds, radius, radius), xRadius: radius, yRadius: radius)

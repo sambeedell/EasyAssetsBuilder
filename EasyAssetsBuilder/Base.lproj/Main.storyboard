@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -104,16 +106,16 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="-71"/>
+            <point key="canvasLocation" x="27" y="-70"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="WindowController" customModule="EasyAssetsBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="WindowController" id="jGA-0Y-lOj" customClass="WindowController" customModule="EasyAssetsBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="preferred" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="833" y="310" width="400" height="600"/>
+                        <rect key="contentRect" x="230" y="200" width="400" height="600"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="jGA-0Y-lOj" id="98r-iN-zZc"/>
@@ -151,15 +153,15 @@
                                         </subviews>
                                     </customView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y4C-y0-7vB">
-                                        <rect key="frame" x="97" y="178" width="187" height="25"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drag Images Here" id="Wdw-Dc-Khh">
+                                        <rect key="frame" x="103" y="178" width="175" height="25"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drag Image Here" id="Wdw-Dc-Khh">
                                             <font key="font" metaFont="systemHeavy" size="21"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YkU-xi-QXJ">
-                                        <rect key="frame" x="142" y="153" width="98" height="21"/>
+                                        <rect key="frame" x="141" y="153" width="98" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="B1U-Dt-j3x"/>
                                         </constraints>
@@ -187,44 +189,199 @@
                                 </constraints>
                             </customView>
                             <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hl8-Gh-T9p">
-                                <rect key="frame" x="3" y="2" width="394" height="206"/>
+                                <rect key="frame" x="3" y="42" width="394" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="Tab" identifier="" id="1Ct-6h-rEh">
-                                        <view key="view" ambiguous="YES" id="6Nx-3X-n3m">
-                                            <rect key="frame" x="10" y="33" width="374" height="160"/>
+                                    <tabViewItem label="Options" identifier="" id="1Ct-6h-rEh">
+                                        <view key="view" id="6Nx-3X-n3m">
+                                            <rect key="frame" x="10" y="33" width="134" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ryC-It-JKb">
-                                                    <rect key="frame" x="282" y="3" width="80" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="0iu-Fe-Rgp"/>
-                                                    </constraints>
-                                                    <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5x4-Ov-tiZ">
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfN-0r-1Zg">
+                                                    <rect key="frame" x="17" y="-45" width="309" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="~/Desktop" drawsBackground="YES" id="pkH-Fa-YuK" customClass="RoundedTextFieldCell" customModule="EasyAssetsBuilder" customModuleProvider="target">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-kZ-JWm">
+                                                    <rect key="frame" x="15" y="-20" width="76" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output URL" id="6EF-Lk-qlr">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHN-QD-vlZ">
+                                                    <rect key="frame" x="327" y="-47" width="30" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="search" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H5B-4r-jdS">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
-                                                        <action selector="exportAction:" target="5gI-5U-AMq" id="Lop-1W-GEs"/>
+                                                        <action selector="searchURLButtonPressed:" target="5gI-5U-AMq" id="prV-Uw-mMC"/>
                                                     </connections>
                                                 </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPg-DA-Kcq">
+                                                    <rect key="frame" x="15" y="-70" width="65" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Quick Help:" id="W6z-eT-McI">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBz-z5-CIB">
+                                                    <rect key="frame" x="15" y="-121" width="313" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Help message" id="ssn-9B-RG8">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ryC-It-JKb" firstAttribute="leading" secondItem="6Nx-3X-n3m" secondAttribute="leading" constant="288" id="WdX-06-u9z"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ryC-It-JKb" secondAttribute="trailing" id="oPE-6f-TyX"/>
-                                                <constraint firstAttribute="bottom" secondItem="ryC-It-JKb" secondAttribute="bottom" constant="10" id="xYL-1w-9Qs"/>
-                                            </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="View" identifier="" id="hGe-IX-dzv">
-                                        <view key="view" id="gGP-g3-qLd">
-                                            <rect key="frame" x="10" y="33" width="374" height="160"/>
+                                    <tabViewItem label="Devices" identifier="" id="hGe-IX-dzv">
+                                        <view key="view" ambiguous="YES" id="gGP-g3-qLd">
+                                            <rect key="frame" x="10" y="33" width="374" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="23" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMN-Q5-NdK">
+                                                    <rect key="frame" x="15" y="35" width="342" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="DFV-Ba-ZTa">
+                                                            <rect key="frame" x="0.0" y="5" width="40" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="0KO-OC-94I"/>
+                                                                <constraint firstAttribute="width" constant="40" id="YWg-wQ-oJL"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="applewatch" imagePosition="only" alignment="center" alternateImage="applewatch-selected" imageScaling="proportionallyUpOrDown" inset="2" id="sS4-WO-jvd">
+                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="deviceSelected:" target="5gI-5U-AMq" id="nQQ-hf-GSQ"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-Kc-v4w">
+                                                            <rect key="frame" x="63" y="5" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="PBw-3A-zpP"/>
+                                                                <constraint firstAttribute="width" constant="50" id="yzl-SX-oGK"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="iphone-x" imagePosition="only" alignment="center" alternateImage="iphone-x-selected" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="xxT-be-lK9">
+                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="deviceSelected:" target="5gI-5U-AMq" id="smD-yb-Zye"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="e2Q-lr-Zhw">
+                                                            <rect key="frame" x="136" y="5" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="W9U-fL-CtN"/>
+                                                                <constraint firstAttribute="width" constant="50" id="jO0-1O-99c"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ipad" imagePosition="only" alignment="center" alternateImage="ipad-selected" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="jPj-KE-Tlu">
+                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="deviceSelected:" target="5gI-5U-AMq" id="cuP-TW-hwr"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="18J-AS-Eov">
+                                                            <rect key="frame" x="209" y="0.0" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="Udb-lS-AI3"/>
+                                                                <constraint firstAttribute="width" constant="60" id="V1C-FM-36Q"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="mac" imagePosition="only" alignment="center" alternateImage="mac-selected" imageScaling="proportionallyUpOrDown" inset="2" id="Goc-LJ-bXi">
+                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="deviceSelected:" target="5gI-5U-AMq" id="giC-Bc-0xV"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="74L-Xm-Lt9">
+                                                            <rect key="frame" x="292" y="5" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="FdW-tu-0b6"/>
+                                                                <constraint firstAttribute="width" constant="50" id="U4d-Eg-F2C"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="appletv" imagePosition="only" alignment="center" alternateImage="appletv-selected" imageScaling="proportionallyUpOrDown" inset="2" id="jcy-1f-gMp">
+                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="deviceSelected:" target="5gI-5U-AMq" id="wnS-Z9-EUv"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F0O-Yk-U5e">
+                                                    <rect key="frame" x="13" y="2" width="366" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Devices Selected: " id="l54-vF-ufM">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryC-It-JKb">
+                                <rect key="frame" x="160" y="13" width="80" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5x4-Ov-tiZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="exportAction:" target="5gI-5U-AMq" id="Lop-1W-GEs"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-jZ-z0K">
+                                <rect key="frame" x="8" y="0.0" width="384" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Error" id="Tyg-eX-4Hc">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="aWA-aY-z4R" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="10" id="ETN-OY-Rmx"/>
@@ -233,8 +390,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appleTV" destination="74L-Xm-Lt9" id="2V4-ig-47j"/>
+                        <outlet property="appleWatch" destination="DFV-Ba-ZTa" id="vWV-du-PaF"/>
+                        <outlet property="devicesLabel" destination="F0O-Yk-U5e" id="24V-p5-jAi"/>
+                        <outlet property="errorLabel" destination="1d7-jZ-z0K" id="YoG-sW-ehg"/>
+                        <outlet property="iPad" destination="e2Q-lr-Zhw" id="fxI-Zz-PN9"/>
+                        <outlet property="iPhone" destination="7Wz-Kc-v4w" id="sWg-R7-N3f"/>
                         <outlet property="infoLabel" destination="YkU-xi-QXJ" id="Rvv-He-Atw"/>
                         <outlet property="invitationLabel" destination="Y4C-y0-7vB" id="eki-vZ-wx3"/>
+                        <outlet property="mac" destination="18J-AS-Eov" id="2xb-fE-vxl"/>
+                        <outlet property="outputURLSearchButton" destination="PHN-QD-vlZ" id="2L6-Y9-GYl"/>
+                        <outlet property="outputURLTextField" destination="lfN-0r-1Zg" id="v4h-HE-9ar"/>
+                        <outlet property="quickHelpMessage" destination="GBz-z5-CIB" id="5gr-Qe-obb"/>
+                        <outlet property="tabView" destination="hl8-Gh-T9p" id="k64-js-Kkd"/>
                         <outlet property="targetLayer" destination="OfK-GJ-TCp" id="kfV-M6-45i"/>
                         <outlet property="topLayer" destination="60Q-zV-iba" id="rbu-IE-cIe"/>
                     </connections>
@@ -244,4 +412,17 @@
             <point key="canvasLocation" x="634" y="336"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="appletv" width="40" height="40"/>
+        <image name="appletv-selected" width="40" height="40"/>
+        <image name="applewatch" width="40" height="40"/>
+        <image name="applewatch-selected" width="40" height="40"/>
+        <image name="ipad" width="40" height="40"/>
+        <image name="ipad-selected" width="40" height="40"/>
+        <image name="iphone-x" width="40" height="40"/>
+        <image name="iphone-x-selected" width="40" height="40"/>
+        <image name="mac" width="40" height="40"/>
+        <image name="mac-selected" width="40" height="40"/>
+        <image name="search" width="40" height="40"/>
+    </resources>
 </document>

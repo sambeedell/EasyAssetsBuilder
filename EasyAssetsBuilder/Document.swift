@@ -22,8 +22,8 @@ class Document: NSDocument {
 
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
-        let storyboard = NSStoryboard(name: "Main", bundle: nil) //NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: "Document Window Controller") as! NSWindowController //storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let windowController = storyboard.instantiateController(withIdentifier: "WindowController") as! WindowController
         self.addWindowController(windowController)
     }
 
@@ -39,7 +39,22 @@ class Document: NSDocument {
         // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
+}
 
 
+class WindowController: NSWindowController {
+    
+    override func windowDidLoad() {
+        super.windowDidLoad()
+        
+        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        self.window?.styleMask.remove( [ .resizable ] )
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        shouldCascadeWindows = true
+    }
+    
 }
 
