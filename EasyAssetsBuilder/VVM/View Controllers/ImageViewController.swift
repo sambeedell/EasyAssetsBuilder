@@ -12,7 +12,7 @@ import Cocoa
 class ImageViewController: NSViewController {
     
     // Show print statements for debugging
-    let DEBUG = true
+    let DEBUG = false
     
     @IBOutlet var topLayer: DestinationView!
     @IBOutlet var targetLayer: NSView!
@@ -30,17 +30,6 @@ class ImageViewController: NSViewController {
     @IBOutlet weak var mac: NSButton!
     @IBOutlet weak var appleTV: NSButton!
     @IBOutlet weak var devicesLabel: NSTextField!
-    
-    @IBOutlet weak var errorLabel: NSTextField!
-    var errorMessage: String = "" {
-        didSet {
-            if errorMessage == "" {
-                showAlert(message: errorMessage)
-            } else {
-                showAlert(message: errorMessage, isHidden: false)
-            }
-        }
-    }
     
     var inputImage: NSImage?
     var path: NSString! { // this must be mutable
@@ -90,7 +79,7 @@ class ImageViewController: NSViewController {
         
         // User must first select devices...
         // TODO: Use property listeners!
-        devices.append(deviceList.iOS)
+        devices.append(deviceList.iPhone)
         //devices.append(deviceList.Mac)
         printDevices()
         
@@ -132,40 +121,25 @@ class ImageViewController: NSViewController {
         }
     }
     
-    func showAlert(message: String, isHidden: Bool = true) {
-        errorLabel.stringValue = message
-        errorLabel.isHidden = isHidden
-        if isHidden == false {
-            shakeWindow()
-        }
-    }
-    
-    func shakeWindow() {
-        let numberOfShakes:Int = 6
-        let durationOfShake:Float = 0.2
-        let vigourOfShake:Float = 0.01
+    func showAlertMessage(_ message: String, isError: Bool = true) {
+        let alert = NSAlert()
+        let title = isError ? "Error" : "Success"
+        alert.messageText = title
+        alert.informativeText = message
+        alert.addButton(withTitle: "Ok")
+        alert.alertStyle = NSWarningAlertStyle
         
-        let frame:CGRect = (self.view.window!.frame)
-        let shakeAnimation = CAKeyframeAnimation()
-        
-        let shakePath = CGMutablePath()
-        shakePath.move(to: CGPoint(x: NSMinX(frame), y: NSMinY(frame)))
-        
-        for _ in 1...numberOfShakes {
-            shakePath.addLine(to: CGPoint(x:NSMinX(frame) - frame.size.width * CGFloat(vigourOfShake), y: NSMinY(frame)))
-            shakePath.addLine(to: CGPoint(x:NSMinX(frame) + frame.size.width * CGFloat(vigourOfShake), y: NSMinY(frame)))
-        }
-        
-        shakePath.closeSubpath()
-        shakeAnimation.path = shakePath
-        shakeAnimation.duration = CFTimeInterval(durationOfShake)
-        self.view.window?.animations = ["frameOrigin":shakeAnimation]
-        self.view.window?.animator().setFrameOrigin((self.view.window?.frame.origin)!)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: { (returnCode) in
+//            if returnCode == NSAlertSecondButtonReturn {
+//                self.showAlertMessage(message: "poo")
+//            }
+        })
     }
     
     @IBAction func deviceSelected(_ sender: NSButton) {
         
-        // TODO: Draw border around button when selected - currently not obvious when device is selected/unselected
+        // TODO: Round button frames
+        // NOTE: Button selected states are flipped (On = Off, Off = On)
         
         switch sender.tag {
         case DeviceTag.aWatch.rawValue:
@@ -173,7 +147,7 @@ class ImageViewController: NSViewController {
             break
             
         case DeviceTag.iPhone.rawValue:
-            if sender.state == NSControlStateValueOn {
+            if sender.state != NSControlStateValueOn {
                 devices.append(deviceList.iPhone)
             } else {
                 if let index = devices.index(where: { $0.name == DeviceName.iPhone} ) {
@@ -186,7 +160,7 @@ class ImageViewController: NSViewController {
             }
             
         case DeviceTag.iPad.rawValue:
-            if sender.state == NSControlStateValueOn {
+            if sender.state != NSControlStateValueOn {
                 devices.append(deviceList.iPad)
             } else {
                 if let index = devices.index(where: { $0.name == DeviceName.iPad} ) {
@@ -199,8 +173,13 @@ class ImageViewController: NSViewController {
             }
             
         case DeviceTag.Mac.rawValue:
-            //print(DeviceName.Mac)
-            break
+            if sender.state != NSControlStateValueOn {
+                devices.append(deviceList.Mac)
+            } else {
+                if let index = devices.index(where: { $0.name == DeviceName.Mac} ) {
+                    devices.remove(at: index)
+                }
+            }
             
         case DeviceTag.AppleTV.rawValue:
             //print(DeviceName.AppleTV)
@@ -274,7 +253,6 @@ class ImageViewController: NSViewController {
         panel.beginSheetModal(for: window) { [unowned self] (result) in
             if result == NSFileHandlingPanelOKButton {
                 let selectedPath = panel.urls[0].path
-                self.errorMessage = ""
                 
                 // Check correct folder is selected - 'Assets.xcassets'
                 if self.pathIsCorrect(selectedPath) {
@@ -285,12 +263,10 @@ class ImageViewController: NSViewController {
                         self.outputURLTextField.stringValue = selectedPath
                     }
                 } else {
-                    self.errorMessage = "Error: Bad filepath"
+                    self.showAlertMessage("Incorrect filepath")
                 }
                 
                 // TODO: Textfield shows end of path (not beginning), similar to scroll to end
-            } else {
-                self.errorMessage = ""
             }
         }
     }
@@ -310,12 +286,12 @@ class ImageViewController: NSViewController {
     @IBAction func exportAction(_ sender: AnyObject) {
         
         guard let _ = inputImage else {
-            errorMessage = "Error: Nothing to export..."
+            showAlertMessage("Nothing to export...")
             return
         }
         
         guard devices.count > 0 else {
-            errorMessage = "Error: No devices selected..."
+            showAlertMessage("No devices selected...")
             return
         }
         
@@ -333,7 +309,7 @@ class ImageViewController: NSViewController {
             if path != File.desktop {
                 // TODO: Warn user that only 1 devices can be selected (except iOS)
                 if devices.count > 1 {
-                    errorMessage = "Error: Multiple devices selected"
+                    showAlertMessage("Multiple devices selected")
                     return
                 }
                 
@@ -354,7 +330,7 @@ class ImageViewController: NSViewController {
                 if processImageForDevice(mutableDevice, in: appIconsURL) {
                     if DEBUG { print("Folder populated with images: ", appIconsURL.path) }
                 } else {
-                    errorMessage = "Error: Failed to create all images"
+                    showAlertMessage("Failed to create all images")
                     // Clean up: remove created directories and return to original
                 }
                 
@@ -374,8 +350,7 @@ class ImageViewController: NSViewController {
         assetBundle?.saveAssetsBundleFor(devices: devices)
         
         // Update Error Message
-        errorMessage = "Success"
-        errorLabel.textColor = NSColor.green
+        showAlertMessage("Images stored to: \(baseURL.path)", isError: false)
     }
     
     func createFolderStructureFor(url: URL) -> Bool {
@@ -450,10 +425,10 @@ class ImageViewController: NSViewController {
     func updateAssetsBundleFor(_ device: Device, given size:Size, and filename: String) {
         // Get properties
         let idiom = device.name.rawValue.lowercased()
-        var sizeString = "\(Int(size.resolution.pixel))x\(Int(size.resolution.pixel))"
+        var sizeString = "\(Int(size.resolution.width))x\(Int(size.resolution.height))"
         // Catch cases that are not int
-        if size.resolution.pixel == 83.5 {
-            sizeString = "\(size.resolution.pixel)x\(size.resolution.pixel)"
+        if size.resolution.width == 83.5 {
+            sizeString = "\(size.resolution.width)x\(size.resolution.height)"
         }
         let scale = "\(Int(size.resolution.scale))x"
         
@@ -518,10 +493,6 @@ extension ImageViewController: DestinationViewDelegate {
         // Create an Image with the contents of the URL
         if let image = NSImage(contentsOf: url) {
             
-            // Reset UI
-            errorMessage = ""
-            errorLabel.textColor = NSColor.red
-            
             // TODO: Error Check!
             //print(infoAbout(url: url))
             
@@ -538,7 +509,7 @@ extension ImageViewController: DestinationViewDelegate {
             if let tiff = image.tiffRepresentation {
                 if let imageRep = NSBitmapImageRep(data: tiff) {
                     guard imageRep.pixelsWide == 1024, imageRep.pixelsHigh == 1024 else {
-                        errorMessage = "Error: Image resolution too low, please submit a 1024x1024 image"
+                        showAlertMessage("Image resolution too low, please submit a 1024x1024 image")
                         return
                     }
                 }

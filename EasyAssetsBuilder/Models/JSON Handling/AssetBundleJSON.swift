@@ -42,8 +42,8 @@ class AssetBundleJSON: NSObject {
             if let data = self.jsonForResource("/\(filename)"), checkValidity(jsonData: data) {
                 self.info = try decoder.decode(Content.self, from: data)
             }
-        } catch let err {
-            print(err)
+        } catch let error as NSError {
+            print(error.description)
         }
         
         for device in devices {
@@ -51,8 +51,8 @@ class AssetBundleJSON: NSObject {
                 do {
                     let deviceAssetBundle = try decoder.decode(AssetBundle.self, from: data)
                     self.assets[device.name.rawValue] = deviceAssetBundle
-                } catch let err {
-                    print(err)
+                } catch let error as NSError {
+                    print(error.description)
                 }
             }
             print("\(device.name) - Contents.json created")
@@ -127,8 +127,8 @@ class AssetBundleJSON: NSObject {
                 do {
                     let data = try jsonEncoder.encode(info)
                     saveJSON(data:data, to: url.appendingPathComponent(filename))
-                } catch let err {
-                    print(err)
+                } catch let error as NSError {
+                    print(error.description)
                 }
                 
                 // Assets
@@ -136,8 +136,8 @@ class AssetBundleJSON: NSObject {
                 do {
                     let data = try jsonEncoder.encode(assets[device.name.rawValue])
                     saveJSON(data:data, to: appIconURL.appendingPathComponent(filename))
-                } catch let err {
-                    print(err)
+                } catch let error as NSError {
+                    print(error.description)
                 }
             }
         }

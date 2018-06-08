@@ -194,12 +194,12 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="Options" identifier="" id="1Ct-6h-rEh">
-                                        <view key="view" id="6Nx-3X-n3m">
-                                            <rect key="frame" x="10" y="33" width="134" height="0.0"/>
+                                        <view key="view" ambiguous="YES" id="6Nx-3X-n3m">
+                                            <rect key="frame" x="10" y="33" width="374" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfN-0r-1Zg">
-                                                    <rect key="frame" x="17" y="-45" width="309" height="22"/>
+                                                    <rect key="frame" x="17" y="75" width="309" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="~/Desktop" drawsBackground="YES" id="pkH-Fa-YuK" customClass="RoundedTextFieldCell" customModule="EasyAssetsBuilder" customModuleProvider="target">
                                                         <font key="font" metaFont="system"/>
@@ -213,7 +213,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-kZ-JWm">
-                                                    <rect key="frame" x="15" y="-20" width="76" height="17"/>
+                                                    <rect key="frame" x="15" y="100" width="76" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output URL" id="6EF-Lk-qlr">
                                                         <font key="font" metaFont="system"/>
@@ -222,7 +222,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHN-QD-vlZ">
-                                                    <rect key="frame" x="327" y="-47" width="30" height="25"/>
+                                                    <rect key="frame" x="327" y="73" width="30" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="search" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H5B-4r-jdS">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -233,7 +233,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPg-DA-Kcq">
-                                                    <rect key="frame" x="15" y="-70" width="65" height="14"/>
+                                                    <rect key="frame" x="15" y="50" width="65" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Quick Help:" id="W6z-eT-McI">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -242,7 +242,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBz-z5-CIB">
-                                                    <rect key="frame" x="15" y="-121" width="313" height="48"/>
+                                                    <rect key="frame" x="15" y="-1" width="313" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Help message" id="ssn-9B-RG8">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -254,85 +254,91 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Devices" identifier="" id="hGe-IX-dzv">
-                                        <view key="view" ambiguous="YES" id="gGP-g3-qLd">
+                                        <view key="view" id="gGP-g3-qLd">
                                             <rect key="frame" x="10" y="33" width="374" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="23" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMN-Q5-NdK">
-                                                    <rect key="frame" x="15" y="35" width="342" height="60"/>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMN-Q5-NdK">
+                                                    <rect key="frame" x="2" y="26" width="370" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="DFV-Ba-ZTa">
-                                                            <rect key="frame" x="0.0" y="5" width="40" height="50"/>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DFV-Ba-ZTa">
+                                                            <rect key="frame" x="0.0" y="-1" width="70" height="72"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="0KO-OC-94I"/>
-                                                                <constraint firstAttribute="width" constant="40" id="YWg-wQ-oJL"/>
+                                                                <constraint firstAttribute="height" constant="70" id="0KO-OC-94I"/>
+                                                                <constraint firstAttribute="width" constant="70" id="YWg-wQ-oJL"/>
                                                             </constraints>
-                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="applewatch" imagePosition="only" alignment="center" alternateImage="applewatch-selected" imageScaling="proportionallyUpOrDown" inset="2" id="sS4-WO-jvd">
-                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                            <buttonCell key="cell" type="smallSquare" title="Apple Watch" bezelStyle="smallSquare" image="applewatch" imagePosition="above" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sS4-WO-jvd">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                <font key="font" metaFont="system" size="10"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="deviceSelected:" target="5gI-5U-AMq" id="nQQ-hf-GSQ"/>
                                                             </connections>
                                                         </button>
-                                                        <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-Kc-v4w">
-                                                            <rect key="frame" x="63" y="5" width="50" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="PBw-3A-zpP"/>
-                                                                <constraint firstAttribute="width" constant="50" id="yzl-SX-oGK"/>
-                                                            </constraints>
-                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="iphone-x" imagePosition="only" alignment="center" alternateImage="iphone-x-selected" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="xxT-be-lK9">
-                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                        <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-Kc-v4w">
+                                                            <rect key="frame" x="75" y="-1" width="70" height="72"/>
+                                                            <buttonCell key="cell" type="smallSquare" title="iPhone" bezelStyle="smallSquare" image="iphone-x-selected" imagePosition="above" alignment="center" alternateImage="iphone-x-selected" borderStyle="border" inset="2" id="xxT-be-lK9">
+                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                <font key="font" metaFont="system" size="10"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="30"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="deviceSelected:" target="5gI-5U-AMq" id="smD-yb-Zye"/>
                                                             </connections>
                                                         </button>
-                                                        <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="e2Q-lr-Zhw">
-                                                            <rect key="frame" x="136" y="5" width="50" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="W9U-fL-CtN"/>
-                                                                <constraint firstAttribute="width" constant="50" id="jO0-1O-99c"/>
-                                                            </constraints>
-                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ipad" imagePosition="only" alignment="center" alternateImage="ipad-selected" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="jPj-KE-Tlu">
-                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                        <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="e2Q-lr-Zhw">
+                                                            <rect key="frame" x="150" y="-1" width="70" height="72"/>
+                                                            <buttonCell key="cell" type="smallSquare" title="iPad" bezelStyle="smallSquare" image="ipad-selected" imagePosition="above" alignment="center" alternateImage="ipad-selected" state="on" borderStyle="border" inset="2" id="jPj-KE-Tlu">
+                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                <font key="font" metaFont="system" size="10"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="deviceSelected:" target="5gI-5U-AMq" id="cuP-TW-hwr"/>
                                                             </connections>
                                                         </button>
-                                                        <button tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="18J-AS-Eov">
-                                                            <rect key="frame" x="209" y="0.0" width="60" height="60"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="60" id="Udb-lS-AI3"/>
-                                                                <constraint firstAttribute="width" constant="60" id="V1C-FM-36Q"/>
-                                                            </constraints>
-                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="mac" imagePosition="only" alignment="center" alternateImage="mac-selected" imageScaling="proportionallyUpOrDown" inset="2" id="Goc-LJ-bXi">
-                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                        <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="18J-AS-Eov">
+                                                            <rect key="frame" x="225" y="-1" width="70" height="72"/>
+                                                            <buttonCell key="cell" type="smallSquare" title="Mac" bezelStyle="smallSquare" image="mac-selected" imagePosition="above" alignment="center" alternateImage="mac-selected" state="on" borderStyle="border" inset="2" id="Goc-LJ-bXi">
+                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                <font key="font" metaFont="system" size="10"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="deviceSelected:" target="5gI-5U-AMq" id="giC-Bc-0xV"/>
                                                             </connections>
                                                         </button>
-                                                        <button tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="74L-Xm-Lt9">
-                                                            <rect key="frame" x="292" y="5" width="50" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="FdW-tu-0b6"/>
-                                                                <constraint firstAttribute="width" constant="50" id="U4d-Eg-F2C"/>
-                                                            </constraints>
-                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="appletv" imagePosition="only" alignment="center" alternateImage="appletv-selected" imageScaling="proportionallyUpOrDown" inset="2" id="jcy-1f-gMp">
-                                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                        <button verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="74L-Xm-Lt9">
+                                                            <rect key="frame" x="300" y="-1" width="70" height="72"/>
+                                                            <buttonCell key="cell" type="smallSquare" title="Apple TV" bezelStyle="smallSquare" image="appletv-selected" imagePosition="above" alignment="center" alternateImage="appletv-selected" enabled="NO" state="on" borderStyle="border" inset="2" id="jcy-1f-gMp">
+                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                <font key="font" metaFont="system" size="10"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="deviceSelected:" target="5gI-5U-AMq" id="wnS-Z9-EUv"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="e2Q-lr-Zhw" firstAttribute="height" secondItem="DFV-Ba-ZTa" secondAttribute="height" id="09D-Gm-G2r"/>
+                                                        <constraint firstItem="7Wz-Kc-v4w" firstAttribute="width" secondItem="DFV-Ba-ZTa" secondAttribute="width" id="5Le-oE-1h6"/>
+                                                        <constraint firstItem="74L-Xm-Lt9" firstAttribute="width" secondItem="DFV-Ba-ZTa" secondAttribute="width" id="ItS-57-hb2"/>
+                                                        <constraint firstItem="18J-AS-Eov" firstAttribute="height" secondItem="DFV-Ba-ZTa" secondAttribute="height" id="RHU-zn-bL9"/>
+                                                        <constraint firstItem="18J-AS-Eov" firstAttribute="width" secondItem="DFV-Ba-ZTa" secondAttribute="width" id="X9h-eg-aIR"/>
+                                                        <constraint firstItem="e2Q-lr-Zhw" firstAttribute="width" secondItem="DFV-Ba-ZTa" secondAttribute="width" id="dth-T3-Sk9"/>
+                                                        <constraint firstItem="7Wz-Kc-v4w" firstAttribute="height" secondItem="DFV-Ba-ZTa" secondAttribute="height" id="pAm-tj-dyo"/>
+                                                        <constraint firstItem="74L-Xm-Lt9" firstAttribute="height" secondItem="DFV-Ba-ZTa" secondAttribute="height" id="wxL-Cv-tQJ"/>
+                                                    </constraints>
                                                     <visibilityPriorities>
                                                         <integer value="1000"/>
                                                         <integer value="1000"/>
@@ -348,7 +354,7 @@
                                                         <real value="3.4028234663852886e+38"/>
                                                     </customSpacing>
                                                 </stackView>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F0O-Yk-U5e">
+                                                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F0O-Yk-U5e">
                                                     <rect key="frame" x="13" y="2" width="366" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Devices Selected: " id="l54-vF-ufM">
@@ -373,15 +379,6 @@
                                     <action selector="exportAction:" target="5gI-5U-AMq" id="Lop-1W-GEs"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-jZ-z0K">
-                                <rect key="frame" x="8" y="0.0" width="384" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Error" id="Tyg-eX-4Hc">
-                                    <font key="font" metaFont="smallSystem"/>
-                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="aWA-aY-z4R" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="10" id="ETN-OY-Rmx"/>
@@ -393,7 +390,6 @@
                         <outlet property="appleTV" destination="74L-Xm-Lt9" id="2V4-ig-47j"/>
                         <outlet property="appleWatch" destination="DFV-Ba-ZTa" id="vWV-du-PaF"/>
                         <outlet property="devicesLabel" destination="F0O-Yk-U5e" id="24V-p5-jAi"/>
-                        <outlet property="errorLabel" destination="1d7-jZ-z0K" id="YoG-sW-ehg"/>
                         <outlet property="iPad" destination="e2Q-lr-Zhw" id="fxI-Zz-PN9"/>
                         <outlet property="iPhone" destination="7Wz-Kc-v4w" id="sWg-R7-N3f"/>
                         <outlet property="infoLabel" destination="YkU-xi-QXJ" id="Rvv-He-Atw"/>
@@ -413,15 +409,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appletv" width="40" height="40"/>
         <image name="appletv-selected" width="40" height="40"/>
         <image name="applewatch" width="40" height="40"/>
-        <image name="applewatch-selected" width="40" height="40"/>
-        <image name="ipad" width="40" height="40"/>
         <image name="ipad-selected" width="40" height="40"/>
-        <image name="iphone-x" width="40" height="40"/>
         <image name="iphone-x-selected" width="40" height="40"/>
-        <image name="mac" width="40" height="40"/>
         <image name="mac-selected" width="40" height="40"/>
         <image name="search" width="40" height="40"/>
     </resources>

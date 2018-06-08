@@ -436,7 +436,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CRBZM3N9GU;
 				INFOPLIST_FILE = EasyAssetsBuilder/Info.plist;
@@ -445,8 +446,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectlambda.EasyAssetsBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sambeedell.EasyAssetsBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3a265df4-2ab3-4edf-af00-de8fc385fea5";
+				PROVISIONING_PROFILE_SPECIFIER = EasyAssetsBuilder_SamBeedell_170418;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -455,7 +458,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CRBZM3N9GU;
 				INFOPLIST_FILE = EasyAssetsBuilder/Info.plist;
@@ -464,8 +468,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectlambda.EasyAssetsBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sambeedell.EasyAssetsBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3a265df4-2ab3-4edf-af00-de8fc385fea5";
+				PROVISIONING_PROFILE_SPECIFIER = EasyAssetsBuilder_SamBeedell_170418;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
